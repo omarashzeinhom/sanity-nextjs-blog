@@ -23,6 +23,7 @@ export default function Articles() {
             <div id="articleContent"></div>
             <h2>Description</h2>
             <Markdown>{result.slice(0, 250)}</Markdown>
+            <p>{article?.author}</p>
             <hr />
           </React.Fragment>
         );
