@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { backEndClient, urlFor } from "../../../sanityclients";
 import Image from "next/image";
+import Markdown from 'markdown-to-jsx';
+
 
 
 export default function Articles() {
@@ -14,15 +16,17 @@ export default function Articles() {
 
   return (
     <div>
-      test
       {articles.map((article: any, index: any) => {
-        
+
+const result = `${article?.articleBody}`;
+
         return (
-            <div key={index}>
-            <h1>{article?.articleTitle}</h1>
-  
-            <p> {article?.articleBody}</p>
-          </div>
+<React.Fragment  key={index}>
+<h1>{article?.articleTitle}</h1>
+<div id="articleContent">
+</div>
+render(<Markdown>{ `${article?.articleBody}`}</Markdown>, document.body);
+</React.Fragment>           
         )
       })}
     </div>
