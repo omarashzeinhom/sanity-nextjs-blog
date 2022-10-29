@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { backEndClient, urlFor } from "../../../sanityclients";
+import { backEndClient, urlFor } from "../../../sanityclient";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
 
@@ -23,9 +23,11 @@ export default function Articles() {
             <h1>{article?.title}</h1>
             <Image
               src={`${urlFor(article?.articleImage)}`}
-              alt=""
+              loading="lazy"
+              alt={article?.title}
               width="250"
               height="250"
+              style={{borderRadius: "28px", boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem gray"}}
             />
             <h2>Description</h2>
             <Markdown>{result.slice(0, 250)}</Markdown>
