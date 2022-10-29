@@ -16,14 +16,20 @@ export default function Articles() {
     <div>
       {articles.map((article: any, index: any) => {
         const result = `${article?.articleBody}`;
+        console.log(JSON.parse(JSON.stringify(article?.articleAuthor)));
 
         return (
           <React.Fragment key={index}>
-            <h1>{article?.articleTitle}</h1>
-            <div id="articleContent"></div>
+            <h1>{article?.title}</h1>
+            <Image
+              src={`${urlFor(article?.articleImage)}`}
+              alt=""
+              width="250"
+              height="250"
+            />
             <h2>Description</h2>
             <Markdown>{result.slice(0, 250)}</Markdown>
-            <p>{article?.author}</p>
+            <p></p>
             <hr />
           </React.Fragment>
         );
