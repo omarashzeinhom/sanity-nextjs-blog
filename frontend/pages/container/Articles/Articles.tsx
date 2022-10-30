@@ -9,6 +9,7 @@ export default function Articles() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const ArticleCategories = [
+    "All",
     "PHP",
     "JavaScript",
     "TypeScript",
@@ -54,7 +55,7 @@ export default function Articles() {
 
       {filterArticles.map((article: any, index: any) => {
         const result = `${article?.articleBody}`;
-        console.log(JSON.parse(JSON.stringify(article?.articleAuthor)));
+        //console.log(JSON.parse(JSON.stringify(article?.articleAuthor)));
 
         return (
           <React.Fragment key={index}>

@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { Header,SideNav } from "./components";
-import Carousel from 'react-grid-carousel';
+import { Header, SideNav } from "./components";
+import Carousel from "react-grid-carousel";
 import { backEndClient, urlFor } from "../sanityclient";
 import React, { useEffect, useState } from "react";
 import { Articles } from "./container";
-
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
@@ -12,39 +11,46 @@ export default function Home() {
   useEffect(() => {
     const GroqQuery = '*[_type == "articles"]';
 
-    backEndClient.fetch(GroqQuery).then((data : any) => setArticles(data));
+    backEndClient.fetch(GroqQuery).then((data: any) => setArticles(data));
   }, []);
 
   return (
-    <div >
+    <div>
       <Header />
       <SideNav />
       <h2>Home</h2>
-      <Carousel cols={2} rows={1} gap={15} loop>
-     
-      {articles.map((article: any, index: any) => {
-        
-        return (
-      
-       <Carousel.Item key={index}>
-         <Image
-              src={`${urlFor(article?.articleImage)}`}
-              alt={article?.title}
-              width="350"
-              height="250"
-              style={{borderRadius: "28px", boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem gray"}}
-            />
-       </Carousel.Item>
-          
-          
-        );
-      })}
-  
-    
-    </Carousel>
+      <Carousel
+        loop
+        cols={4}
+        rows={1}
+        gap={1}
+        scrollSnap={true}
+        mobileBreakpoint={750}
+      >
+        {articles.map((article: any, index: any) => {
+          const title: string = `${article?.title}`;
+          const imgLink: string = `${urlFor(article?.articleImage)}`;
 
-    <Articles/>
+          return (
+            <Carousel.Item key={index}>
+              <Image
+                src={imgLink}
+                alt={article?.title}
+                width="150"
+                height="150"
+                loading="lazy"
+                style={{
+                  borderRadius: "28px",
+                  boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem gray",
+                }}
+              />
+              <h2>{title.slice(0, 15)}...</h2>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
 
+      <Articles />
     </div>
   );
 }
