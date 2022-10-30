@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { backEndClient, urlFor } from "../../../sanityclient";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -40,44 +43,47 @@ export default function Articles() {
   };
 
   return (
-    <div>
-      {ArticleCategories.map((item, index) => (
-        <div
-          key={index}
-          onClick={() => handleFilteringArticles(item)}
-          className={`btn app__work-filter-item app_flex p-text ${
-            activeFilter === item ? "item-active" : "  "
-          }`}
-        >
-          {item}
-        </div>
-      ))}
+    <Container fluid>
+      <Row>
+        {ArticleCategories.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => handleFilteringArticles(item)}
+            className={`btn app__work-filter-item app_flex p-text ${
+              activeFilter === item ? "item-active" : "  "
+            }`}
+          >
+            {item}
+          </div>
+        ))}
+      </Row>
 
-      {filterArticles.map((article: any, index: any) => {
-        const result = `${article?.articleBody}`;
-        //console.log(JSON.parse(JSON.stringify(article?.articleAuthor)));
-
-        return (
-          <React.Fragment key={index}>
-            <h1>{article?.title}</h1>
-            <Image
-              src={`${urlFor(article?.articleImage)}`}
-              loading="lazy"
-              alt={article?.title}
-              width="250"
-              height="250"
-              style={{
-                borderRadius: "28px",
-                boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem gray",
-              }}
-            />
-            <h2>Description</h2>
-            <Markdown>{result.slice(0, 250)}</Markdown>
-            <p></p>
-            <hr />
-          </React.Fragment>
-        );
-      })}
-    </div>
+      <Row>
+        {filterArticles.map((article: any, index: any) => {
+          const result = `${article?.articleBody}`;
+          //console.log(JSON.parse(JSON.stringify(article?.articleAuthor)));
+          const title = `${article?.title}`;
+          return (
+            <Col key={index}>
+              <h1>{title.slice(0, 15)}</h1>
+              <Image
+                src={`${urlFor(article?.articleImage)}`}
+                loading="lazy"
+                alt={title.slice(0, 5)}
+                width="250"
+                height="250"
+                style={{
+                  borderRadius: "28px",
+                  boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem gray",
+                }}
+              />
+              <Markdown>{result.slice(0, 75)}</Markdown>
+              <p></p>
+              <hr />
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 }
