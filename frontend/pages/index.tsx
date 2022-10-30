@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Header, Nav } from "./components";
+import { Header,SideNav } from "./components";
 import Carousel from 'react-grid-carousel';
 import { backEndClient, urlFor } from "../sanityclient";
 import React, { useEffect, useState } from "react";
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div >
       <Header />
-      <Nav />
+      <SideNav />
       <h2>Home</h2>
       <Carousel cols={2} rows={1} gap={15} loop>
      
@@ -44,7 +44,7 @@ export default function Home() {
     </Carousel>
 
     <Articles/>
-    
+
     </div>
   );
 }
