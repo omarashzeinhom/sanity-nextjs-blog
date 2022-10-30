@@ -53,8 +53,8 @@ export default function Articles() {
               <Button
                 key={index}
                 onClick={() => handleFilteringArticles(item)}
-                className={`btn btn-success app__work-filter-item app_flex p-text ${
-                  activeFilter === item ? "item-active" : "  "
+                className={`btn btn-success ${
+                  activeFilter === item ? "active" : "  "
                 }`}
               >
                 {item}
