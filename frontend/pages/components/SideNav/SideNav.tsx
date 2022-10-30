@@ -18,9 +18,8 @@ function SideNav() {
   ];
 
   return (
-    <>
+    <Container fluid>
       <Navbar bg="light" expand="lg" className="mb-3">
-        <Container fluid>
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Offcanvas placement="end">
@@ -60,9 +59,9 @@ function SideNav() {
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
-        </Container>
       </Navbar>
-    </>
+      </Container>
+
   );
 }
 

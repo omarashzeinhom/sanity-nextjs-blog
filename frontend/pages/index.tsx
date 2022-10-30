@@ -4,6 +4,8 @@ import Carousel from "react-grid-carousel";
 import { backEndClient, urlFor } from "../sanityclient";
 import React, { useEffect, useState } from "react";
 import { Articles } from "./container";
+import Stack from 'react-bootstrap/Stack';
+
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
@@ -21,10 +23,9 @@ export default function Home() {
       <h2>Home</h2>
       <Carousel
         loop
-        cols={4}
+        cols={3}
         rows={1}
-        gap={1}
-        scrollSnap={true}
+        gap={4}
         mobileBreakpoint={750}
       >
         {articles.map((article: any, index: any) => {
@@ -49,8 +50,9 @@ export default function Home() {
           );
         })}
       </Carousel>
-
+      
       <Articles />
+   
     </div>
   );
 }

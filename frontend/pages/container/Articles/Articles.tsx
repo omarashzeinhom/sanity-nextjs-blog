@@ -46,12 +46,11 @@ export default function Articles() {
 
   return (
     <Container fluid>
-      <Row className="text-center">
-        <Col size="5">
-          <ButtonGroup>
-            {ArticleCategories.map((item, index) => (
+      <Row>
+        <Col>
+          {ArticleCategories.map((item, index) => (
+            <ButtonGroup key={index}>
               <Button
-                key={index}
                 onClick={() => handleFilteringArticles(item)}
                 className={`btn btn-success ${
                   activeFilter === item ? "active" : "  "
@@ -59,8 +58,8 @@ export default function Articles() {
               >
                 {item}
               </Button>
-            ))}
-          </ButtonGroup>
+            </ButtonGroup>
+          ))}
         </Col>
       </Row>
 
