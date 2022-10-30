@@ -1,10 +1,10 @@
-import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import { Header, Nav } from "./components";
 import Carousel from 'react-grid-carousel';
 import { backEndClient, urlFor } from "../sanityclient";
 import React, { useEffect, useState } from "react";
+
+
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
@@ -16,11 +16,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div >
       <Header />
       <Nav />
       <h2>Home</h2>
-      <Carousel cols={2} rows={1} gap={10} loop>
+      <Carousel cols={2} rows={1} gap={15} loop>
      
       {articles.map((article: any, index: any) => {
         

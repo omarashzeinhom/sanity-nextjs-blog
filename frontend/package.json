@@ -11,9 +11,12 @@
   "dependencies": {
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
+    "@types/react-bootstrap": "^0.32.31",
+    "bootstrap": "^5.2.2",
     "markdown-to-jsx": "^7.1.7",
     "next": "13.0.0",
     "react": "18.2.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "18.2.0",
     "react-grid-carousel": "^1.0.1",
     "sanity": "^2.33.2"

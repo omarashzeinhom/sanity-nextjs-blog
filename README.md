@@ -3,7 +3,8 @@
 - Built with
 - [yarn](https://yarnpkg.com/)
 - [Next.js](https://nextjs.org/)
-- []()
+- [ReactBootStrap](https://react-bootstrap.github.io/)
+- [Sanity Backend API](https://www.sanity.io/)
 
 ## Start By
 
@@ -28,6 +29,12 @@ yarn dev
 3. [sanity](https://yarnpkg.com/package/sanity)
 4. [markdown-to-jsx](https://yarnpkg.com/package/markdown-to-jsx)
 5. [react-grid-carousel](https://yarnpkg.com/package/react-grid-carousel)
+6. [@types/react-bootstrap](https://yarnpkg.com/package/@types/react-bootstrap)
+7. [react-bootstrap bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
+
+```bash
+yarn add sanity @sanity/client @sanity/image-url markdown-to-jsx react-grid-carousel react-bootstrap bootstrap @types/react-bootstrap
+```
 
 #### References
 
