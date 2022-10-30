@@ -3,7 +3,7 @@ import { Header, Nav } from "./components";
 import Carousel from 'react-grid-carousel';
 import { backEndClient, urlFor } from "../sanityclient";
 import React, { useEffect, useState } from "react";
-
+import { Articles } from "./container";
 
 
 export default function Home() {
@@ -42,6 +42,9 @@ export default function Home() {
   
     
     </Carousel>
+
+    <Articles/>
+    
     </div>
   );
 }
