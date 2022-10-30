@@ -5,6 +5,8 @@ import Markdown from "markdown-to-jsx";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -44,18 +46,22 @@ export default function Articles() {
 
   return (
     <Container fluid>
-      <Row>
-        {ArticleCategories.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleFilteringArticles(item)}
-            className={`btn app__work-filter-item app_flex p-text ${
-              activeFilter === item ? "item-active" : "  "
-            }`}
-          >
-            {item}
-          </div>
-        ))}
+      <Row className="text-center">
+        <Col size="5">
+          <ButtonGroup>
+            {ArticleCategories.map((item, index) => (
+              <Button
+                key={index}
+                onClick={() => handleFilteringArticles(item)}
+                className={`btn btn-success app__work-filter-item app_flex p-text ${
+                  activeFilter === item ? "item-active" : "  "
+                }`}
+              >
+                {item}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </Col>
       </Row>
 
       <Row>
