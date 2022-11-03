@@ -1,2 +1,2 @@
-export {default as Articles} from "../articles/Articles";
+export {default as ArticlesComp} from "./all/ArticlesComp";
 

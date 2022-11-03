@@ -1,5 +1,5 @@
 import { SideNav, Header } from "./components";
-import { Articles } from "./articles/index";
+import { ArticlesComp } from "./articles/index";
 import styles from "../styles/Home.module.css";
 
 
@@ -9,7 +9,7 @@ export default function articles() {
       <Header />
       <SideNav/>
       <h2>Articles</h2>
-      <Articles/>
+      <ArticlesComp/>
     </div>
   );
 }

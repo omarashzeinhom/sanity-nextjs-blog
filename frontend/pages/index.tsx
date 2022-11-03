@@ -3,7 +3,7 @@ import { Header, SideNav } from "./components";
 import Carousel from "react-grid-carousel";
 import { backEndClient, urlFor } from "../sanityclient";
 import React, { useEffect, useState } from "react";
-import { Articles } from "./articles/index";
+import { ArticlesComp } from "./articles/index";
 import { SSRProvider } from "react-bootstrap";
 import Link from "next/link";
 
@@ -58,7 +58,7 @@ export default function Home() {
         })}
       </Carousel>
 
-      <Articles />
+      <ArticlesComp />
     </SSRProvider>
   );
 }

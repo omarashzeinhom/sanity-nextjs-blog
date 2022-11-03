@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { backEndClient, urlFor } from "../../sanityclient";
+import { backEndClient, urlFor } from "../../../sanityclient";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
 import Container from "react-bootstrap/Container";
@@ -14,6 +14,16 @@ import Card from 'react-bootstrap/Card';
 
 
 
+const ArticleCategories = [
+  "All",
+  "PHP",
+  "JavaScript",
+  "TypeScript",
+  "CSS3",
+  "SASS & SCSS",
+  "GO",
+  "C#",
+];
 
 
 export default function Articles() {
@@ -21,16 +31,6 @@ export default function Articles() {
   const [filterArticles, setFilterArticles] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const ArticleCategories = [
-    "All",
-    "PHP",
-    "JavaScript",
-    "TypeScript",
-    "CSS3",
-    "SASS & SCSS",
-    "GO",
-    "C#",
-  ];
 
   useEffect(() => {
     const GroqQuery = '*[_type == "articles"]';
@@ -51,6 +51,11 @@ export default function Articles() {
       );
     }
   };
+
+
+
+
+
 
   return (
     <Container fluid>
@@ -107,3 +112,5 @@ export default function Articles() {
     </Container>
   );
 }
+
+
