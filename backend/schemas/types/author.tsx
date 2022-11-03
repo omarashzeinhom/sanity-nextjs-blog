@@ -5,7 +5,7 @@ const authors = {
 
   fields: [
     {
-      name: "firstName",
+      name: "firstName",  // key id
       title: "First Name",
       type: "string",
     },
