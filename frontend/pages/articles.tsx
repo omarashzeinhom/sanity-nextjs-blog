@@ -1,5 +1,5 @@
 import { SideNav, Header } from "./components";
-import { Articles } from "./container";
+import { Articles } from "./articles/index";
 import styles from "../styles/Home.module.css";
 
 

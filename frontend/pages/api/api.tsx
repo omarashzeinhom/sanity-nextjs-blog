@@ -1,4 +1,3 @@
-import {useState} from "react";
 import { backEndClient } from "../../sanityclient";
 
 const articleFields = `
@@ -13,27 +12,50 @@ categories,
 
 `;
 
-const getSingleArticles: any = (articles: any)=> {
+export const getSingleArticles: any = (articles: any) => {
   const articleSlugs = new Set();
-  return articles.filter((article: any)=> {
-    if (articleSlugs.has(article.slug)){
-      if (articleSlugs.has(article.slug)){
+  return articles.filter((article: any) => {
+    if (articleSlugs.has(article.slug)) {
+      if (articleSlugs.has(article.slug)) {
         return false;
-      }else{
-        articleSlugs.add(article.slug)
+      } else {
+        articleSlugs.add(article.slug);
         return true;
       }
     }
-  })
-}
+  });
+};
 
-export async function GetPostSlug(slug: string, preview: boolean) {
-  const [post, setPosts] = useState([]);
-
+export async function GetPostSlug(slug: string) {
   const groqQuery = `*[_type == "article" && slug.current == $slug] | order (_updatedAt asc)'{
-
     ${articleFields}
 articleBody
-
 }`;
+
+
+
+
+const altGroqQuery = `*[_type == "article" && slug.current != $slug] | order (_updatedAt asc)'{
+  ${articleFields}
+articleBody
+}[0..2]`;
+
+  const [article, setArticles] = await Promise.all([
+    backEndClient.fetch(groqQuery, { slug }).then((response) => response?.[0]),
+    backEndClient.fetch(altGroqQuery, {slug}),
+  ]);
+  return {article, setArticles: getSingleArticles(setArticles)}
 }
+
+
+export async function FetchArticlesSlug () {
+
+const groqQuerySlug = `*[_type == "article"]{'slug: slug.current'} `;
+
+const backEndQuery = await backEndClient.fetch(
+groqQuerySlug
+)
+
+return backEndQuery;
+
+} 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { backEndClient, urlFor } from "../../../sanityclient";
+import { backEndClient, urlFor } from "../../sanityclient";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
 import Container from "react-bootstrap/Container";
@@ -7,6 +7,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Card from 'react-bootstrap/Card';
+
+
+
+
+
+
+
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -69,22 +77,29 @@ export default function Articles() {
           //console.log(JSON.parse(JSON.stringify(article?.articleAuthor)));
           const title = `${article?.title}`;
           return (
-            <Col key={index}>
-              <h1>{title.slice(0, 15)}</h1>
-              <Image
+            <Col key={index} gap={5} size={4} xs="12" sm={12} md={6} lg={4} xl={4} xxl={3}>
+              <Card>
+            <Card.Title>
+            <h1>{title.slice(0, 15)}</h1>
+            </Card.Title>
+
+              <Card.Img
                 src={`${urlFor(article?.articleImage)}`}
                 loading="lazy"
                 alt={title.slice(0, 5)}
                 width="250"
                 height="250"
                 style={{
-                  borderRadius: "28px",
+                  borderRadius: "18px",
                   boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem gray",
                 }}
               />
-              <Markdown>{result.slice(0, 75)}</Markdown>
-              <p></p>
-              <hr />
+                  <Card.Body>
+                <Markdown>{result.slice(0, 75)}</Markdown>
+
+                </Card.Body>
+              </Card>
+<hr/>
             </Col>
           );
         })}

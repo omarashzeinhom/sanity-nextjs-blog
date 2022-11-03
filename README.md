@@ -41,3 +41,6 @@ yarn add sanity @sanity/client @sanity/image-url markdown-to-jsx react-grid-caro
 1. [Reference](https://www.sanity.io/docs/reference-type)
 2. [sanity-io /sanity-template-nextjs-blog-comments](https://github.com/sanity-io/sanity-template-nextjs-blog-comments)
 3. [next/image Un-configured Host](https://nextjs.org/docs/messages/next-image-unconfigured-host)
+4. [NextJs- Docs - href-interpolation-failed](https://nextjs.org/docs/messages/href-interpolation-failed)
+5. [Invalid getStaticPaths Return Value](https://nextjs.org/docs/messages/invalid-getstaticpaths-value)
+6. [NextJs- Docs  Invalid getStaticPaths Return Value](https://nextjs.org/docs/messages/invalid-getstaticpaths-value)

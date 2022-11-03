@@ -33,7 +33,7 @@ const articles = {
       title: "Article Slug",
       name: "articleSlug",
       type: "slug",
-      initialValue: "",
+      initialValue: "title",
       options : {
         source: "title",
         slugify: input => input.toLowerCase().replace(/\s+/g, '-').slice(0,200)
