@@ -39,7 +39,7 @@ function SideNav() {
 
                   {ArticleCategories.map((category: string, index: any) => {
                     return (
-                      <NavDropdown.Item key={index} href={"/articles"}>
+                      <NavDropdown.Item key={index} href={`/articles/${category}`}>
                         {category}
                       </NavDropdown.Item>
                     );

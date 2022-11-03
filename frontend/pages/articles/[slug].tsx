@@ -1,14 +1,21 @@
+import Markdown from "markdown-to-jsx";
 import { useRouter } from "next/router";
-import { FetchArticlesSlug, getSingleArticles } from "../api/api";
+import { FetchArticlesSlug, getSingleArticles, GetPostSlug } from "../api/api";
 
 export default function Article(article: any) {
   const nextRouter = useRouter();
+
   console.log(FetchArticlesSlug);
   console.log(getSingleArticles);
+  console.log(GetPostSlug);
+  const result = `${article?.articleBody}`;
 
   return (
     <>
       <h1>Article</h1>
+      {article?.title}
+      <Markdown>{result}</Markdown>
+
     </>
   );
 }

@@ -1,5 +1,12 @@
 # About
 
+- TODOS
+  
+1. ADD CORRECT URL FOR EACH PAGE[ ]
+2. ADD CORRECT URL FOR EACH CATEGORY in `/components/SideNav.tsx`[ ]
+3. ADD CORRECT properties to be passed in `/articles/[slug].tsx`[ ]
+4. ADD FINAL GUI FIXES [ ]
+
 - Built with
 - [yarn](https://yarnpkg.com/)
 - [Next.js](https://nextjs.org/)
